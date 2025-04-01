@@ -1,11 +1,11 @@
 {
-  "name": "express-template",
+  "name": "insurance-recommendation-api",
   "version": "1.0.0",
   "description": "Basic Express template with body-parser, index.html static handler with jQuery and Bootstrap",
-  "main": "index.js",
+  "main": "server.js",
   "license": "AFL-3.0",
   "scripts": {
-    "start": "nodemon index.js localhost 8080"
+    "start": "nodemon server.js localhost 8080"
   },
   "dependencies": {
     "express": "4.17.1"
