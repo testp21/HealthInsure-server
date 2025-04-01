@@ -28,15 +28,15 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-// // Models
-// const Session = require("./models/session");
-// const Question = require("./models/question");
-// const Plan = require("./models/plan");
+// Models
+const Session = require("./models/session");
+const Question = require("./models/question");
+const Plan = require("./models/plan");
 
-// Routes
-// app.use("/api/sessions", require("./routes/sessions"));
-// app.use("/api/questions", require("./routes/questions"));
-// app.use("/api/admin", require("./routes/admin"));
+// Routes;
+app.use("/api/sessions", require("./routes/sessions"));
+app.use("/api/questions", require("./routes/questions"));
+app.use("/api/admin", require("./routes/admin"));
 
 // Start server
 app.listen(PORT, () => {
