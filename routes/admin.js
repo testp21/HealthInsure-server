@@ -3,10 +3,10 @@ const express = require("express");
 const router = express.Router();
 const Question = require("../models/question");
 const Plan = require("../models/plan");
-const authMiddleware = require("../middleware/auth");
+// const authMiddleware = require("../middleware/auth");
 
 // Use authentication middleware for all admin routes
-router.use(authMiddleware);
+// router.use(authMiddleware);
 
 // Get entire question tree
 router.get("/questions", async (req, res) => {
