@@ -1,0 +1,325 @@
+{
+    "id": "q1",
+    "question": "What is your marital status?",
+    "explanation": "Determining your marital status helps us decide whether to recommend an individual or a family plan.",
+    "options": [
+        {
+            "answer": "Single",
+            "next": {
+                "id": "q2_single",
+                "question": "What is your age range?",
+                "explanation": "Your age affects premium rates and eligibility for various plans.",
+                "options": [
+                    {
+                        "answer": "Below 30",
+                        "next": {
+                            "id": "q3_single",
+                            "question": "What is your occupation?",
+                            "explanation": "Occupation can influence risk assessment and determine potential discounts or tailored offers.",
+                            "options": [
+                                {
+                                    "answer": "Student",
+                                    "next": {
+                                        "id": "q4_single",
+                                        "question": "Do you have an existing health insurance policy?",
+                                        "explanation": "Knowing whether you already have coverage helps us identify any gaps in your current policy.",
+                                        "options": [
+                                            {
+                                                "answer": "Yes",
+                                                "next": {
+                                                    "id": "q5_single_yes",
+                                                    "question": "What is your primary expectation from your policy?",
+                                                    "explanation": "This tells us if you prefer value for money, best protection, or a balance of both.",
+                                                    "options": [
+                                                        {
+                                                            "answer": "Value for Money",
+                                                            "next": {
+                                                                "id": "q6_single_yes_value",
+                                                                "question": "Do you have any pre-existing medical conditions?",
+                                                                "explanation": "Pre-existing conditions impact coverage options and premium costs.",
+                                                                "options": [
+                                                                    {
+                                                                        "answer": "Yes",
+                                                                        "next": null
+                                                                    },
+                                                                    {
+                                                                        "answer": "No",
+                                                                        "next": null
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "answer": "Best Protection",
+                                                            "next": {
+                                                                "id": "q6_single_yes_protection",
+                                                                "question": "Do you have any pre-existing medical conditions?",
+                                                                "explanation": "Pre-existing conditions impact coverage options and premium costs.",
+                                                                "options": [
+                                                                    {
+                                                                        "answer": "Yes",
+                                                                        "next": null
+                                                                    },
+                                                                    {
+                                                                        "answer": "No",
+                                                                        "next": null
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "answer": "Balanced",
+                                                            "next": {
+                                                                "id": "q6_single_yes_balanced",
+                                                                "question": "Do you have any pre-existing medical conditions?",
+                                                                "explanation": "Pre-existing conditions impact coverage options and premium costs.",
+                                                                "options": [
+                                                                    {
+                                                                        "answer": "Yes",
+                                                                        "next": null
+                                                                    },
+                                                                    {
+                                                                        "answer": "No",
+                                                                        "next": null
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "answer": "No",
+                                                "next": {
+                                                    "id": "q5_single_no",
+                                                    "question": "What is your primary expectation from your policy?",
+                                                    "explanation": "This tells us if you prefer value for money, best protection, or a balance of both.",
+                                                    "options": [
+                                                        {
+                                                            "answer": "Value for Money",
+                                                            "next": {
+                                                                "id": "q6_single_no_value",
+                                                                "question": "Do you have any pre-existing medical conditions?",
+                                                                "explanation": "Pre-existing conditions impact coverage options and premium costs.",
+                                                                "options": [
+                                                                    {
+                                                                        "answer": "Yes",
+                                                                        "next": null
+                                                                    },
+                                                                    {
+                                                                        "answer": "No",
+                                                                        "next": null
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "answer": "Best Protection",
+                                                            "next": {
+                                                                "id": "q6_single_no_protection",
+                                                                "question": "Do you have any pre-existing medical conditions?",
+                                                                "explanation": "Pre-existing conditions impact coverage options and premium costs.",
+                                                                "options": [
+                                                                    {
+                                                                        "answer": "Yes",
+                                                                        "next": null
+                                                                    },
+                                                                    {
+                                                                        "answer": "No",
+                                                                        "next": null
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "answer": "Balanced",
+                                                            "next": {
+                                                                "id": "q6_single_no_balanced",
+                                                                "question": "Do you have any pre-existing medical conditions?",
+                                                                "explanation": "Pre-existing conditions impact coverage options and premium costs.",
+                                                                "options": [
+                                                                    {
+                                                                        "answer": "Yes",
+                                                                        "next": null
+                                                                    },
+                                                                    {
+                                                                        "answer": "No",
+                                                                        "next": null
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "answer": "Married",
+            "next": {
+                "id": "q2_married",
+                "question": "What is your age range?",
+                "explanation": "Your age helps tailor the insurance plan to your current and future healthcare needs.",
+                "options": [
+                    {
+                        "answer": "30-35",
+                        "next": {
+                            "id": "q3_married_young",
+                            "question": "What is your occupation?",
+                            "explanation": "Occupation impacts your risk profile and eligibility for certain plans.",
+                            "options": [
+                                {
+                                    "answer": "Working Professional",
+                                    "next": {
+                                        "id": "q4_married_young",
+                                        "question": "Do you have an existing health insurance policy?",
+                                        "explanation": "This helps us understand your current coverage and identify any gaps.",
+                                        "options": [
+                                            {
+                                                "answer": "Yes",
+                                                "next": {
+                                                    "id": "q5_married_yes_young",
+                                                    "question": "What is your primary expectation from your policy?",
+                                                    "explanation": "Your expectation—whether value for money or best protection—guides the recommendation.",
+                                                    "options": [
+                                                        {
+                                                            "answer": "Value for Money",
+                                                            "next": {
+                                                                "id": "q6_married_yes_young_value",
+                                                                "question": "Are you planning to start a family soon?",
+                                                                "explanation": "Family planning may necessitate additional benefits like maternity cover.",
+                                                                "options": [
+                                                                    {
+                                                                        "answer": "Yes",
+                                                                        "next": null
+                                                                    },
+                                                                    {
+                                                                        "answer": "No",
+                                                                        "next": null
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "answer": "Best Protection",
+                                                            "next": {
+                                                                "id": "q6_married_yes_young_protection",
+                                                                "question": "Are you planning to start a family soon?",
+                                                                "explanation": "Family planning may necessitate additional benefits like maternity cover.",
+                                                                "options": [
+                                                                    {
+                                                                        "answer": "Yes",
+                                                                        "next": null
+                                                                    },
+                                                                    {
+                                                                        "answer": "No",
+                                                                        "next": null
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "answer": "Balanced",
+                                                            "next": {
+                                                                "id": "q6_married_yes_young_balanced",
+                                                                "question": "Are you planning to start a family soon?",
+                                                                "explanation": "Family planning may necessitate additional benefits like maternity cover.",
+                                                                "options": [
+                                                                    {
+                                                                        "answer": "Yes",
+                                                                        "next": null
+                                                                    },
+                                                                    {
+                                                                        "answer": "No",
+                                                                        "next": null
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "answer": "No",
+                                                "next": {
+                                                    "id": "q5_married_no_young",
+                                                    "question": "What is your primary expectation from your policy?",
+                                                    "explanation": "Your expectation—whether value for money or best protection—guides the recommendation.",
+                                                    "options": [
+                                                        {
+                                                            "answer": "Value for Money",
+                                                            "next": {
+                                                                "id": "q6_married_no_young_value",
+                                                                "question": "Are you planning to start a family soon?",
+                                                                "explanation": "Family planning may necessitate additional benefits like maternity cover.",
+                                                                "options": [
+                                                                    {
+                                                                        "answer": "Yes",
+                                                                        "next": null
+                                                                    },
+                                                                    {
+                                                                        "answer": "No",
+                                                                        "next": null
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "answer": "Best Protection",
+                                                            "next": {
+                                                                "id": "q6_married_no_young_protection",
+                                                                "question": "Are you planning to start a family soon?",
+                                                                "explanation": "Family planning may necessitate additional benefits like maternity cover.",
+                                                                "options": [
+                                                                    {
+                                                                        "answer": "Yes",
+                                                                        "next": null
+                                                                    },
+                                                                    {
+                                                                        "answer": "No",
+                                                                        "next": null
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "answer": "Balanced",
+                                                            "next": {
+                                                                "id": "q6_married_no_young_balanced",
+                                                                "question": "Are you planning to start a family soon?",
+                                                                "explanation": "Family planning may necessitate additional benefits like maternity cover.",
+                                                                "options": [
+                                                                    {
+                                                                        "answer": "Yes",
+                                                                        "next": null
+                                                                    },
+                                                                    {
+                                                                        "answer": "No",
+                                                                        "next": null
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                    
+                ]
+            }
+        }
+    ]
+}

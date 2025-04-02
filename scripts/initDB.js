@@ -3,45 +3,46 @@ const mongoose = require("mongoose");
 const Question = require("../models/question");
 const Plan = require("../models/plan");
 require("dotenv").config();
+const questionTree = require("../questions.json");
 
 // Sample question tree data
-const questionTree = {
-  id: "q1",
-  question: "What is your marital status?",
-  explanation:
-    "Determining your marital status helps us decide whether to recommend an individual or a family plan.",
-  options: [
-    {
-      answer: "Single",
-      next: {
-        id: "q2_single",
-        question: "What is your age range?",
-        explanation:
-          "Your age affects premium rates and eligibility for various plans.",
-        options: [
-          {
-            answer: "Below 30",
-            next: {
-              id: "q3_single",
-              question: "What is your occupation?",
-              // This would continue with the full tree...
-              // Truncated for brevity
-            },
-          },
-        ],
-      },
-    },
-    {
-      answer: "Married",
-      next: {
-        id: "q2_married",
-        question: "What is your age range?",
-        // This would continue with the full tree...
-        // Truncated for brevity
-      },
-    },
-  ],
-};
+// const questionTree = {
+//   id: "q1",
+//   question: "What is your marital status?",
+//   explanation:
+//     "Determining your marital status helps us decide whether to recommend an individual or a family plan.",
+//   options: [
+//     {
+//       answer: "Single",
+//       next: {
+//         id: "q2_single",
+//         question: "What is your age range?",
+//         explanation:
+//           "Your age affects premium rates and eligibility for various plans.",
+//         options: [
+//           {
+//             answer: "Below 30",
+//             next: {
+//               id: "q3_single",
+//               question: "What is your occupation?",
+//               // This would continue with the full tree...
+//               // Truncated for brevity
+//             },
+//           },
+//         ],
+//       },
+//     },
+//     {
+//       answer: "Married",
+//       next: {
+//         id: "q2_married",
+//         question: "What is your age range?",
+//         // This would continue with the full tree...
+//         // Truncated for brevity
+//       },
+//     },
+//   ],
+// };
 
 // Sample plans data
 const samplePlans = [
@@ -133,23 +134,25 @@ function flattenQuestionTree(question) {
     id: question.id,
     question: question.question,
     explanation: question.explanation,
-    options: question.options.map((option) => {
-      // Create a new option object
-      const newOption = {
-        answer: option.answer,
-      };
+    options: Array.isArray(question.options)
+      ? question.options.map((option) => {
+          // Create a new option object
+          const newOption = {
+            answer: option.answer,
+          };
 
-      // If next is an object (nested question), extract its ID
-      if (option.next && typeof option.next === "object") {
-        const nestedQuestions = flattenQuestionTree(option.next);
-        questions.push(...nestedQuestions);
-        newOption.next = option.next.id;
-      } else {
-        newOption.next = option.next;
-      }
+          // If next is an object (nested question), extract its ID
+          if (option.next && typeof option.next === "object") {
+            const nestedQuestions = flattenQuestionTree(option.next);
+            questions.push(...nestedQuestions);
+            newOption.next = option.next.id;
+          } else {
+            newOption.next = option.next;
+          }
 
-      return newOption;
-    }),
+          return newOption;
+        })
+      : [],
   });
 
   return questions;
@@ -170,13 +173,29 @@ async function initDb() {
     // Flatten question tree
     const flattenedQuestions = flattenQuestionTree(questionTree);
 
-    // Insert questions
-    await Question.insertMany(flattenedQuestions);
-    console.log(`Inserted ${flattenedQuestions.length} questions`);
+    // Check for duplicate IDs
+    const ids = new Set();
+    const duplicates = flattenedQuestions.filter((q) => {
+      if (ids.has(q.id)) return true;
+      ids.add(q.id);
+      return false;
+    });
 
-    // Insert plans
-    await Plan.insertMany(samplePlans);
-    console.log(`Inserted ${samplePlans.length} plans`);
+    if (duplicates.length > 0) {
+      console.error(
+        "Duplicate question IDs found:",
+        duplicates.map((d) => d.id)
+      );
+      process.exit(1);
+    }
+
+    // Insert questions
+    // await Question.insertMany(flattenedQuestions);
+    // console.log(`Inserted ${flattenedQuestions.length} questions`);
+
+    // // Insert plans
+    // await Plan.insertMany(samplePlans);
+    // console.log(`Inserted ${samplePlans.length} plans`);
 
     console.log("Database initialization complete");
     process.exit(0);
