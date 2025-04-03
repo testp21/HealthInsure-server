@@ -190,12 +190,12 @@ async function initDb() {
     }
 
     // Insert questions
-    // await Question.insertMany(flattenedQuestions);
-    // console.log(`Inserted ${flattenedQuestions.length} questions`);
+    await Question.insertMany(flattenedQuestions);
+    console.log(`Inserted ${flattenedQuestions.length} questions`);
 
-    // // Insert plans
-    // await Plan.insertMany(samplePlans);
-    // console.log(`Inserted ${samplePlans.length} plans`);
+    // Insert plans
+    await Plan.insertMany(samplePlans);
+    console.log(`Inserted ${samplePlans.length} plans`);
 
     console.log("Database initialization complete");
     process.exit(0);
