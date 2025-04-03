@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const { v4: uuidv4 } = require("uuid");
 const cors = require("cors");
 require("dotenv").config();
-const initDB = require("./scripts/initDB");
+// const initDB = require("./scripts/initDB");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
