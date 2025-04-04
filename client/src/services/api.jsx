@@ -1,7 +1,7 @@
 // src/services/api.js
 import axios from "axios";
 
-const BASE_URL = "/api";
+const BASE_URL = "https://yykz26-3000.csb.app/api";
 
 export const createSession = async () => {
   const response = await axios.post(`${BASE_URL}/sessions`);
@@ -10,6 +10,7 @@ export const createSession = async () => {
 
 export const getFirstQuestion = async () => {
   const response = await axios.get(`${BASE_URL}/questions/first`);
+  console.log(response.data);
   return response.data;
 };
 
